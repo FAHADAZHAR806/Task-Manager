@@ -1,55 +1,50 @@
 import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
-import { SignJWT } from "jose";
 import connectToDatabase from "@/lib/mongodb";
 import { User } from "@/lib/models/User";
+import bcrypt from "bcryptjs";
+import { SignJWT } from "jose";
 
 export async function POST(req: Request) {
   try {
     await connectToDatabase();
     const { email, password } = await req.json();
 
-    // 1. Find user
     const user = await User.findOne({ email });
     if (!user) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
       return NextResponse.json(
-        { message: "Invalid credentials" },
+        { message: "Invalid password" },
         { status: 401 },
       );
     }
 
-    // 2. Check password
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
-    if (!isPasswordCorrect) {
-      return NextResponse.json(
-        { message: "Invalid credentials" },
-        { status: 401 },
-      );
-    }
-
-    // 3. Create JWT Token
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    const token = await new SignJWT({ userId: user._id, email: user.email })
+
+    // FIX: user._id ko .toString() karna lazmi hai
+    const token = await new SignJWT({ userId: user._id.toString() })
       .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("1d") // Token valid for 1 day
+      .setExpirationTime("24h")
       .sign(secret);
 
-    // 4. Set token in a Secure Cookie
     const response = NextResponse.json(
       { message: "Login successful" },
       { status: 200 },
     );
+
     response.cookies.set("token", token, {
-      httpOnly: true, // Cannot be accessed by JavaScript (very secure)
+      httpOnly: true,
       secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 86400, // 1 day
       path: "/",
     });
 
     return response;
   } catch (error: any) {
-    return NextResponse.json(
-      { message: "Login failed", error: error.message },
-      { status: 500 },
-    );
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

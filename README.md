@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌊 FocusFlow - Full-Stack Kanban Task Manager
 
-## Getting Started
+**FocusFlow** is a high-performance, professional task management application built with the MERN/Next.js stack. It features a crisp, clean UI designed for maximum productivity and seamless user experience.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+FocusFlow allows users to organize their projects into a 3-stage Kanban pipeline. With built-in authentication and data isolation, every user gets a private, secure workspace to manage their professional and personal goals.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **🔐 Secure Authentication:** Token-based (JWT) login and registration system.
+- **🛡️ Private Workspace:** Strict data isolation ensures users only see and manage their own tasks.
+- **📊 Kanban Board:** Organized columns for _Pending_, _In Progress_, and _Completed_ tasks.
+- **📋 Detailed Task Management:** Full CRUD (Create, Read, Update, Delete) capabilities.
+- **📅 Timeline Tracking:** Real-time visibility of 'Created' and 'Due' dates on every card.
+- **📱 Fully Responsive:** Optimized for a smooth experience across Mobile, Tablet, and Desktop.
+- **⚡ Modern UI:** Sharp, high-contrast design avoiding blurry effects for better readability.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js 14/15](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strictly typed for better stability)
+- **Database:** [MongoDB](https://www.mongodb.com/) with Mongoose ODM
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Auth:** JWT & HTTP-only Cookies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  ```
