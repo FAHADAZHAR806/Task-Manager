@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import connectToDatabase from "@/lib/mongodb";
+import connectToDatabase from "@/lib/dbConnect/mongodb";
 import { Task } from "@/lib/models/Task";
 import { jwtVerify } from "jose";
 
