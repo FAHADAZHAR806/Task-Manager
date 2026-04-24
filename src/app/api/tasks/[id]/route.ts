@@ -18,7 +18,6 @@ export async function PATCH(
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
     await jwtVerify(token, secret);
 
-    // Ye line sabse zaroori hai: pura body data nikaalein
     const updateData = await req.json();
 
     // findByIdAndUpdate mein poora object pass karein

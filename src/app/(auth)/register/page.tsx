@@ -21,7 +21,6 @@ export default function RegisterPage() {
     setError("");
 
     try {
-      // Axios use kar rahe hain as requested
       const res = await axios.post("/api/auth/register", formData);
 
       if (res.status === 201 || res.status === 200) {
@@ -71,7 +70,7 @@ export default function RegisterPage() {
               />
               <input
                 type="text"
-                placeholder="John Doe"
+                placeholder="Enter your Name"
                 required
                 className="w-full pl-10 pr-4 py-2.5 border border-[#E2E8F0] rounded-xl text-[#0F172A] focus:ring-2 focus:ring-[#2563EB] outline-none transition-all sm:text-sm"
                 onChange={(e) =>
@@ -93,7 +92,7 @@ export default function RegisterPage() {
               />
               <input
                 type="email"
-                placeholder="john@example.com"
+                placeholder="Enter your Email"
                 required
                 className="w-full pl-10 pr-4 py-2.5 border border-[#E2E8F0] rounded-xl text-[#0F172A] focus:ring-2 focus:ring-[#2563EB] outline-none transition-all sm:text-sm"
                 onChange={(e) =>
@@ -115,7 +114,7 @@ export default function RegisterPage() {
               />
               <input
                 type="password"
-                placeholder="••••••••"
+                placeholder="Enter your Password"
                 required
                 className="w-full pl-10 pr-4 py-2.5 border border-[#E2E8F0] rounded-xl text-[#0F172A] focus:ring-2 focus:ring-[#2563EB] outline-none transition-all sm:text-sm"
                 onChange={(e) =>

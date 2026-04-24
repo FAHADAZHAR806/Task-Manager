@@ -11,6 +11,5 @@ const UserSchema = new Schema(
   { timestamps: true },
 );
 
-// Next.js ke liye model check aur export
 const User = models.User || model("User", UserSchema);
 export default User;

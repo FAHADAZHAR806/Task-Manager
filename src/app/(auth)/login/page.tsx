@@ -68,7 +68,7 @@ export default function LoginPage() {
               </div>
               <input
                 type="email"
-                placeholder="email@example.com"
+                placeholder="Enter your email"
                 required
                 className="w-full pl-10 pr-4 py-2.5 border border-[#E2E8F0] rounded-xl text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all sm:text-sm"
                 onChange={(e) =>
@@ -97,7 +97,7 @@ export default function LoginPage() {
               </div>
               <input
                 type="password"
-                placeholder="••••••••"
+                placeholder="Enter your password"
                 required
                 className="w-full pl-10 pr-4 py-2.5 border border-[#E2E8F0] rounded-xl text-[#0F172A] focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:border-transparent transition-all sm:text-sm"
                 onChange={(e) =>

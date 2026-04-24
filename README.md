@@ -1,32 +1,56 @@
-# 🌊 FocusFlow - Full-Stack Kanban Task Manager
+# 📝 TaskFlow - Professional Task Management System
 
-**FocusFlow** is a high-performance, professional task management application built with the MERN/Next.js stack. It features a crisp, clean UI designed for maximum productivity and seamless user experience.
+**TaskFlow** is a full-stack, production-ready Task Management application. It enables users to organize their daily productivity through a secure, personalized dashboard. This project demonstrates advanced concepts in modern web development, including **Role-Based API Logic**, **State Management**, and **Secure Authentication Flows**.
 
 ---
 
-## 🚀 Overview
+## 🚀 Live Demo
 
-FocusFlow allows users to organize their projects into a 3-stage Kanban pipeline. With built-in authentication and data isolation, every user gets a private, secure workspace to manage their professional and personal goals.
+[**View Live Project**](https://your-vercel-link.vercel.app)
+
+---
 
 ## ✨ Key Features
 
-- **🔐 Secure Authentication:** Token-based (JWT) login and registration system.
-- **🛡️ Private Workspace:** Strict data isolation ensures users only see and manage their own tasks.
-- **📊 Kanban Board:** Organized columns for _Pending_, _In Progress_, and _Completed_ tasks.
-- **📋 Detailed Task Management:** Full CRUD (Create, Read, Update, Delete) capabilities.
-- **📅 Timeline Tracking:** Real-time visibility of 'Created' and 'Due' dates on every card.
-- **📱 Fully Responsive:** Optimized for a smooth experience across Mobile, Tablet, and Desktop.
-- **⚡ Modern UI:** Sharp, high-contrast design avoiding blurry effects for better readability.
+- **User Authentication:** Complete Register/Login system with password encryption.
+- **Secure Password Recovery:** Token-based "Forgot Password" flow with expiration logic.
+- **Full CRUD Operations:** Users can Create, Read, Update, and Delete tasks.
+- **Data Isolation:** Every user has a private database scope—users can only access their own tasks.
+- **Responsive UI:** Clean, minimalist dashboard designed with Tailwind CSS for all device sizes.
+- **API Security:** Protected backend routes that verify user identity before processing requests.
 
-## 🛠️ Tech Stack
+---
 
-- **Framework:** [Next.js 14/15](https://nextjs.org/) (App Router)
-- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strictly typed for better stability)
-- **Database:** [MongoDB](https://www.mongodb.com/) with Mongoose ODM
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Auth:** JWT & HTTP-only Cookies
+## 🛠️ Technical Stack
 
-  ```
+| Category          | Technology                                        |
+| :---------------- | :------------------------------------------------ |
+| **Frontend**      | Next.js 14 (App Router), TypeScript, Tailwind CSS |
+| **Backend**       | Next.js API Routes (Serverless)                   |
+| **Database**      | MongoDB with Mongoose ODM                         |
+| **Security**      | JSON Web Tokens (JWT) & Bcrypt.js                 |
+| **Communication** | Axios for asynchronous API requests               |
+| **Icons**         | Lucide React                                      |
 
-  ```
+---
+
+## 🛡️ Security & Architecture
+
+To ensure professional-grade security, this project implements:
+
+1. **Password Hashing:** Utilizing `bcryptjs` to ensure no plain-text passwords reside in the database.
+2. **JWT Authorization:** Secure session handling using JSON Web Tokens.
+3. **Sensitive Data Protection:** Environment variables (`.env`) are used to protect DB credentials and Secret Keys.
+4. **Input Sanitization:** Backend logic trims and validates user inputs (e.g., email formatting) to prevent injection.
+
+---
+
+## ⚙️ Local Development Setup
+
+To run this project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone (https://github.com/yourusername/taskflow.git)
+   cd taskflow
+   ```

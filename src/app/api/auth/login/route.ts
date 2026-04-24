@@ -24,7 +24,6 @@ export async function POST(req: Request) {
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 
-    // FIX: user._id ko .toString() karna lazmi hai
     const token = await new SignJWT({ userId: user._id.toString() })
       .setProtectedHeader({ alg: "HS256" })
       .setExpirationTime("24h")
@@ -39,7 +38,7 @@ export async function POST(req: Request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
-      maxAge: 86400, // 1 day
+      maxAge: 86400,
       path: "/",
     });
 

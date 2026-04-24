@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/dbConnect/mongodb";
 import { Task } from "@/lib/models/Task";
-import { User } from "@/lib/models/User";
+import User from "@/lib/models/User";
 import { jwtVerify } from "jose";
 
-// Mazboot helper function jo [object Object] ko handle karega
+//  helper function who handles[object Object]
 const getCleanUserId = (payload: any) => {
   if (!payload || !payload.userId) return null;
 

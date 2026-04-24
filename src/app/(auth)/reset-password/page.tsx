@@ -12,7 +12,7 @@ function ResetForm() {
 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const token = searchParams.get("token"); // URL se token uthata hai
+  const token = searchParams.get("token");
 
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();

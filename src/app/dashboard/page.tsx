@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 import {
   DragDropContext,
   Droppable,
@@ -116,11 +117,16 @@ export default function Dashboard() {
           <button
             onClick={async () => {
               await axios.post("/api/auth/logout");
-              window.location.href = "/login";
+              window.location.href = "/logout";
             }}
             className="p-2 text-[#94A3B8] hover:text-[#EF4444] transition-colors"
           >
-            <LogOut size={20} />
+            <Link
+              href="/logout"
+              className="flex items-center gap-2 text-rose-600 font-bold"
+            >
+              <LogOut size={20} />
+            </Link>
           </button>
         </div>
       </header>

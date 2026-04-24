@@ -8,10 +8,10 @@ export async function POST(req: Request) {
     await dbConnect();
     const { token, password } = await req.json();
 
-    // 1. Token dhoondna aur check karna ke expired na ho
+    // 1. Find Token and dCheck its Expiry
     const user = await User.findOne({
       resetPasswordToken: token,
-      resetPasswordExpiry: { $gt: new Date() }, // Token ka time abhi baaki ho
+      resetPasswordExpiry: { $gt: new Date() },
     });
 
     if (!user) {
@@ -21,11 +21,11 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Naya password hash karna
+    // 2. New Password Hashing
     const hashedPassword = await bcrypt.hash(password, 10);
     user.password = hashedPassword;
 
-    // 3. Reset fields ko clear karna taaki token dobara use na ho sake
+    // 3. Clear Reset Fields
     user.resetPasswordToken = undefined;
     user.resetPasswordExpiry = undefined;
 
