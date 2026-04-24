@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import connectToDatabase from "@/lib/dbConnect/mongodb";
 import { Task } from "@/lib/models/Task";
 import { jwtVerify } from "jose";
@@ -11,7 +12,9 @@ export async function PATCH(
     await connectToDatabase();
     const { id } = await params;
 
-    const token = req.cookies.get("token")?.value;
+    // const token = req.cookies.get("token")?.value;
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value;
     if (!token)
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 

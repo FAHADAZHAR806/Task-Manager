@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import connectToDatabase from "@/lib/dbConnect/mongodb";
 import { Task } from "@/lib/models/Task";
-import User from "@/lib/models/User";
 import { jwtVerify } from "jose";
 
 //  helper function who handles[object Object]
@@ -27,7 +27,8 @@ export async function GET(req: Request) {
   try {
     await connectToDatabase();
 
-    const token = req.cookies.get("token")?.value;
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token")?.value;
     if (!token) return NextResponse.json([], { status: 401 });
 
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
