@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect/mongodb";
 import User from "@/lib/models/User";
 import crypto from "crypto";
-import nodemailer from "nodemailer"; // 1. Nodemailer import karein
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
