@@ -20,17 +20,21 @@ export async function POST(req: Request) {
     // 2. Hash the password
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // 3. Create new user
+    // 3. Create new user with "pending" status
     const newUser = new User({
       name,
       email,
       password: hashedPassword,
+      status: "pending",
     });
 
     await newUser.save();
 
     return NextResponse.json(
-      { message: "User registered successfully" },
+      {
+        message:
+          "Registration successful. Please wait for Admin approval before logging in.",
+      },
       { status: 201 },
     );
   } catch (error: any) {

@@ -5,6 +5,13 @@ const UserSchema = new Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+
+    // --- NEW FIELDS FOR ADMIN APPROVAL & FORGOT PASSWORD ---
+    status: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
+    },
     resetPasswordToken: { type: String },
     resetPasswordExpiry: { type: Date },
   },

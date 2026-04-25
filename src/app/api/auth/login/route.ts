@@ -22,6 +22,25 @@ export async function POST(req: Request) {
       );
     }
 
+    // --- NEW: ADMIN APPROVAL CHECK ---
+    if (user.status === "pending") {
+      return NextResponse.json(
+        {
+          message:
+            "Your account is awaiting admin approval. Please try again later.",
+        },
+        { status: 403 }, // 403 means Forbidden
+      );
+    }
+
+    if (user.status === "rejected") {
+      return NextResponse.json(
+        { message: "Your account request has been rejected by the admin." },
+        { status: 403 },
+      );
+    }
+    // ---------------------------------
+
     const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 
     const token = await new SignJWT({ userId: user._id.toString() })
