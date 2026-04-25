@@ -25,7 +25,7 @@ export async function POST(req: Request) {
       name,
       email,
       password: hashedPassword,
-      status: "pending",
+      status: "approved",
     });
 
     await newUser.save();
