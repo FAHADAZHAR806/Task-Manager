@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// middleware work for Dahboard and Subpages
+// middleware work for Dashboard and Subpages
 export const config = {
   matcher: ["/dashboard/:path*"],
 };

@@ -22,16 +22,16 @@ export async function POST(req: Request) {
     user.resetPasswordExpiry = resetTokenExpiry;
     await user.save();
 
-    // 2. Transporter Setup (Gmail ke liye)
+    // 2. Transporter Setup
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_SERVER_USER, // Vercel/Env se aayega
-        pass: process.env.EMAIL_SERVER_PASSWORD, // App Password yahan aayega
+        user: process.env.EMAIL_SERVER_USER,
+        pass: process.env.EMAIL_SERVER_PASSWORD,
       },
     });
 
-    // 3. Dynamic URL (Local host aur Vercel dono ke liye)
+    // 3. Dynamic URL (Local host andd Vercel dono ke liye)
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     const resetUrl = `${baseUrl}/reset-password?token=${resetToken}`;
 
@@ -43,10 +43,10 @@ export async function POST(req: Request) {
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">
           <h2>Password Reset Request</h2>
-          <p>Aapne password reset karne ki request ki hai. Niche diye gaye button par click karke naya password set karein:</p>
+          <p>You have requested a password reset. Click the button below to set a new password:</p>
           <a href="${resetUrl}" style="background: #2563EB; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Password</a>
-          <p>Ye link 1 ghante tak valid hai.</p>
-          <p>Agar aapne ye request nahi ki, to is email ko ignore karein.</p>
+          <p>Your link is valid for 1 hour.</p>
+          <p>If you did not request it, the email is to be ignore.</p>
         </div>
       `,
     });

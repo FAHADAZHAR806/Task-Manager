@@ -10,7 +10,6 @@ const getCleanUserId = (payload: any) => {
 
   let id = payload.userId;
 
-  // Agar payload mein object aa gaya hai
   if (typeof id === "object") {
     id = id._id || id.id || JSON.stringify(id);
   }

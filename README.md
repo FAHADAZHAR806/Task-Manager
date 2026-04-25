@@ -1,56 +1,59 @@
-# 📝 TaskFlow - Professional Task Management System
+# 📝 FocusFlow - Professional Task Management System
 
-**TaskFlow** is a full-stack, production-ready Task Management application. It enables users to organize their daily productivity through a secure, personalized dashboard. This project demonstrates advanced concepts in modern web development, including **Role-Based API Logic**, **State Management**, and **Secure Authentication Flows**.
+**FocusFlow** is a modern, full-stack Task Management application designed for peak productivity. Featuring a drag-and-drop interface and secure data isolation, it allows users to manage their workflow with a professional-grade dashboard.
 
 ---
 
 ## 🚀 Live Demo
 
-[**View Live Project**](https://your-vercel-link.vercel.app)
+[**View Live Project**](https://task-manager-eta-five-23.vercel.app/login)
 
 ---
 
 ## ✨ Key Features
 
-- **User Authentication:** Complete Register/Login system with password encryption.
-- **Secure Password Recovery:** Token-based "Forgot Password" flow with expiration logic.
-- **Full CRUD Operations:** Users can Create, Read, Update, and Delete tasks.
-- **Data Isolation:** Every user has a private database scope—users can only access their own tasks.
-- **Responsive UI:** Clean, minimalist dashboard designed with Tailwind CSS for all device sizes.
-- **API Security:** Protected backend routes that verify user identity before processing requests.
+- **Interactive Kanban Board:** Smooth **Drag-and-Drop** functionality powered by `@hello-pangea/dnd` to manage task statuses (Pending, In Progress, Completed).
+- **User Authentication:** Secure Login/Register system using **JSON Web Tokens (JWT)** and **Bcrypt.js** for password encryption.
+- **Dynamic Profile System:** Smart profile detection using **Cookies** and `jwt-decode` to fetch user data without local storage dependency.
+- **Productivity Analytics:** Real-time stats dashboard showing total tasks, completion rates, and progress tracking.
+- **Full CRUD Operations:** Create, Edit, and Delete tasks with a sleek, user-friendly modal interface.
+- **Smart Filtering:** Instant search and priority-based filtering (High, Medium, Low) to stay focused on what matters.
+- **Data Isolation:** Enterprise-level security where every user has a private database scope.
+- **Mobile First Design:** Fully responsive UI built with **Tailwind CSS** and **Lucide React** icons.
 
 ---
 
 ## 🛠️ Technical Stack
 
-| Category          | Technology                                        |
-| :---------------- | :------------------------------------------------ |
-| **Frontend**      | Next.js 14 (App Router), TypeScript, Tailwind CSS |
-| **Backend**       | Next.js API Routes (Serverless)                   |
-| **Database**      | MongoDB with Mongoose ODM                         |
-| **Security**      | JSON Web Tokens (JWT) & Bcrypt.js                 |
-| **Communication** | Axios for asynchronous API requests               |
-| **Icons**         | Lucide React                                      |
+| Category         | Technology                                        |
+| :--------------- | :------------------------------------------------ |
+| **Frontend**     | Next.js 14 (App Router), TypeScript, Tailwind CSS |
+| **Interactions** | @hello-pangea/dnd (Drag & Drop)                   |
+| **Backend**      | Next.js API Routes (Serverless)                   |
+| **Database**     | MongoDB with Mongoose ODM                         |
+| **Security**     | JWT (Cookies/Headers), Bcrypt.js                  |
+| **API Client**   | Axios for asynchronous requests                   |
+| **Icons**        | Lucide React                                      |
 
 ---
 
 ## 🛡️ Security & Architecture
 
-To ensure professional-grade security, this project implements:
+This project implements professional-grade security protocols:
 
-1. **Password Hashing:** Utilizing `bcryptjs` to ensure no plain-text passwords reside in the database.
-2. **JWT Authorization:** Secure session handling using JSON Web Tokens.
-3. **Sensitive Data Protection:** Environment variables (`.env`) are used to protect DB credentials and Secret Keys.
-4. **Input Sanitization:** Backend logic trims and validates user inputs (e.g., email formatting) to prevent injection.
+1. **Hybrid Auth Verification:** Backend logic verifies tokens from both **HTTP Headers** and **Cookies** for maximum compatibility.
+2. **Password Hashing:** Utilizing `bcryptjs` to ensure zero plain-text passwords in the database.
+3. **Sensitive Data Protection:** Strict use of Environment Variables (`.env`) for DB URI and JWT Secret Keys.
+4. **Data Integrity:** Used `.select("-password")` on API routes to ensure sensitive user data never reaches the client-side.
 
 ---
 
 ## ⚙️ Local Development Setup
 
-To run this project locally:
+To run FocusFlow locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone (https://github.com/yourusername/taskflow.git)
-   cd taskflow
+   git clone [https://github.com/yourusername/focusflow.git](https://github.com/yourusername/focusflow.git)
+   cd focusflow
    ```

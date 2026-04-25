@@ -10,7 +10,7 @@ const UserSchema = new Schema(
     status: {
       type: String,
       enum: ["pending", "approved", "rejected"],
-      default: "pending",
+      default: "approved",
     },
     resetPasswordToken: { type: String },
     resetPasswordExpiry: { type: Date },
